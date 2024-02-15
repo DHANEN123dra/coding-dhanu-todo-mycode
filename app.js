@@ -66,7 +66,7 @@ app.get("/todos/", async (request,response)=>{
                      FROM
                       todo
                      WHERE
-                      todo LIKE '%${search_q}%
+                      todo LIKE '%${search_q}%'
                       AND priority ='${priority}';`;
         break;
 
@@ -77,7 +77,7 @@ app.get("/todos/", async (request,response)=>{
                      FROM
                       todo
                      WHERE
-                      todo LIKE '%${search_q}%
+                      todo LIKE '%${search_q}%'
                       AND status ='${status}';`;
         break;
 
@@ -88,7 +88,7 @@ app.get("/todos/", async (request,response)=>{
                      FROM
                       todo
                      WHERE
-                      todo LIKE '%${search_q}%;`;
+                      todo LIKE '%${search_q}%';`;
     }
     data = await db.all(getTodoQuery)
     response.send(data)
@@ -114,7 +114,7 @@ app.post("/todos/", async (request,response)=>{
     INSERT INTO
      todo (id,todo,priority,status)
     VALUES
-     (${id},'${todo}','${priority}','${status}';)`
+     (${id},'${todo}','${priority}','${status}');`
     
     await db.run(postTodoQuery)
     response.send("Todo Successfully Added")
@@ -161,7 +161,7 @@ app.put("/todos/:todoId/", async (request,response)=>{
       SET
        todo = '${todo}',
        priority = '${priority}'
-       status = ${status}
+       status = '${status}'
       WHERE
        id = ${todoId};`
 
