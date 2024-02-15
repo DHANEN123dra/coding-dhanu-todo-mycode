@@ -136,7 +136,7 @@ app.put("/todos/:todoId/", async (request,response)=>{
         break;
 
         case requestBody.todo !== undefined:
-        updatedColumn="todo"
+        updatedColumn="Todo"
         break;
     }
 
