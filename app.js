@@ -160,7 +160,7 @@ app.put("/todos/:todoId/", async (request,response)=>{
        todo
       SET
        todo = '${todo}',
-       priority = '${priority}'
+       priority = '${priority}',
        status = '${status}'
       WHERE
        id = ${todoId};`
